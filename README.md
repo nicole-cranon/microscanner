@@ -1,7 +1,7 @@
 # A Micro Scanner
 The scanner will be a function of no arguments that returns Token values.
-￼
-**type**
+
+**type** 
 Token **is** (BeginSym, EndSym, ReadSym, WriteSym, Id, IntLiteral, LParen,
 RParen, SemiColon, Comma, AssignOp, PlusOp, MinusOp, EofSym); 
 
