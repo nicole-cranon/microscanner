@@ -1,9 +1,9 @@
-# A Micro Scanner
-The scanner will be a function of no arguments that returns Token values.
+# An Ad Hoc Micro Scanner
+The scanner will be a function of no arguments that returns Token values. The scanner will be a component in an ad hoc compiler.
 
 **type** 
 Token **is** (BeginSym, EndSym, ReadSym, WriteSym, Id, IntLiteral, LParen,
-RParen, SemiColon, Comma, AssignOp, PlusOp, MinusOp, EofSym); 
+RParen, SemiColon, Comma, AssignOp, ExpOp, PlusOp, MinusOp, EqualOp, EofSym); 
 
 TokenBuffer: String
 
