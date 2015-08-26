@@ -147,6 +147,7 @@ namespace scanner {
                 done = true;
                 //std::cout << buffer << ' ' ;
                 tokenBuffer.push_back (buffer);
+                // check if an id or a reserved word
                 return checkReserved (buffer);
 
             }

@@ -29,7 +29,6 @@ namespace scanner {
     Comma,
     AssignOp,
     ExpOp,
-    MultOp,
     PlusOp,
     MinusOp,
     EqualOp,
