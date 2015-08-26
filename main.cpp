@@ -1,8 +1,8 @@
 /* 
-	nicole cranon <nicole.cranon@ucdenver.edu
-	csci 4640, fall 2015
-	assignment 1 - micro scanner
-*/
+   nicole cranon <nicole.cranon@ucdenver.edu
+   csci 4640, fall 2015
+   assignment 1 - micro scanner
+ */
 
 #include "scanner.h"
 #include <iostream>
@@ -10,7 +10,7 @@
 std::vector<scanner::token> scanner::tokenVector;
 
 int main (int argc, char* argv[]) {
-	
+
   char *scanFilename = argv[1];
 
   scanner::file.open (scanFilename);
@@ -31,8 +31,8 @@ int main (int argc, char* argv[]) {
     // append next token to token vector
     scanner::tokenVector.push_back (readToken);
 
-//    // print read token symbol
-//    std::cout << token_type[readToken] << '\n';
+    //    // print read token symbol
+    //    std::cout << token_type[readToken] << '\n';
 
   } while (readToken != scanner::EofSym);
 
@@ -44,7 +44,7 @@ int main (int argc, char* argv[]) {
 
   }
 
-	return 0;
+  return 0;
 
 }
 

@@ -17,7 +17,7 @@ namespace scanner {
   typedef enum {
 
     BeginSym,
-    EndSym, 
+    EndSym,
     ReadSym,
     WriteSym,
     Id,
