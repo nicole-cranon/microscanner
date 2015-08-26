@@ -29,3 +29,22 @@ TokenBuffer: String
 
 	*CheckReserved —  
 		Takes the identifiers as they are recognized and returns the proper token class (either Id or some reserved word).
+
+
+**Extended Micro Grammer** 
+1. <program> -> begin <stmt list> end 
+2. <stmt list> -> <statement> | <statement> <stmt list> 
+3. <statement> -> Id := <expression>; 
+4. <statement> -> read (<id list>); 
+5. <statement> -> write (<expr list>); 
+6. <id list> -> Id | Id, <id list> 
+7. <expr list> -> <expression> | <expression>, <expr list> 
+8. <bool expression> -> <expression> = <expression> 
+9. <expression> -> <exponential> | <exponential> + <expression> | <exponential> - <expression> 
+10. <exponential> -> <primary> | <primary> ** <exponential> 
+11. <primary> -> Id 
+12. <primary> -> IntLiteral 
+13. <primary> -> (<expression>) 
+14. <add op> -> + | - 
+15. <exp op> -> ** 
+16. <system goal> -> <program>$ 
