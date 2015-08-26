@@ -2,6 +2,6 @@ BEGIN --SOMETHING UNUSUAL
   READ(A1, New_A, D, B);
 
   New_B:=A**C;
-  New_A = New_B * 3;
+  New_A = New_B - 3;
   --WHAT ABOUT := B+D;
 END
