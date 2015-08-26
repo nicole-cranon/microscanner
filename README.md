@@ -9,14 +9,15 @@ TokenBuffer: String
 
 **function** Scanner **return** Token; 
 	The following routines will be used: 
-￼
+
+
 	*Read  
 		Inspect — 
 			The next input character is read; error if Eof is true.
 			The next input character is returned, but input is not advanced; error if Eof is true.
 		Advance - 
 			The next input character is removed, but not returned; no effect at end of file.
-
+ 
 	*Eof -
 		True at the end of file.
 
