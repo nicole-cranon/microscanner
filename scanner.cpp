@@ -27,7 +27,6 @@ namespace scanner {
     [Comma] = "Comma",
     [AssignOp] = "AssignOp",
     [ExpOp] = "ExpOp",
-    [MultOp] = "MultOp",
     [PlusOp] = "PlusOp",
     [MinusOp] = "MinusOp",
     [EqualOp] = "EqualOp",
@@ -283,13 +282,10 @@ namespace scanner {
 
           }
 
-          // Multiplication operator
+          // lexical error, there is no multiplication
           else {
 
-            //std::cout << buffer << ' ' ;
-            tokenBuffer.push_back (buffer);
-
-            return MultOp;
+            std::cerr << "\nLexical Error\n";
 
           }
 
