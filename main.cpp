@@ -40,7 +40,7 @@ int main (int argc, char* argv[]) {
 
   for (int i = 0; i < scanner::tokenVector.size(); ++i) {
 
-    std::cout << "Token " << i << ':' <<  ' ' << scanner::token_type [scanner::tokenVector[i]] << " \"" << scanner::tokenString[i] << '\"' << '\n';
+    std::cout << "Token " << i << ':' <<  ' ' << scanner::token_type [scanner::tokenVector[i]] << " \"" << scanner::tokenBuffer[i] << '\"' << '\n';
 
   }
 

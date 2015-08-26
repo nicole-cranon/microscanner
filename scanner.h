@@ -41,7 +41,7 @@ namespace scanner {
   extern std::string token_type[]; 
 
   // holds the token strings built
-  extern std::vector<std::string> tokenString;
+  extern std::vector<std::string> tokenBuffer;
 
   // holds the token symbols
   extern std::vector<token> tokenVector;

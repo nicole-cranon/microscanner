@@ -94,7 +94,7 @@ namespace scanner {
 
   }
 
-  std::vector<std::string> tokenString;
+  std::vector<std::string> tokenBuffer;
   token scan () {
 
     std::string buffer;
@@ -146,7 +146,7 @@ namespace scanner {
 
                 done = true;
                 //std::cout << buffer << ' ' ;
-                tokenString.push_back (buffer);
+                tokenBuffer.push_back (buffer);
                 return checkReserved (buffer);
 
             }
@@ -178,7 +178,7 @@ namespace scanner {
 
                 done = true;
                 //std::cout << buffer << ' ';
-                tokenString.push_back (buffer);
+                tokenBuffer.push_back (buffer);
                 return IntLiteral;
 
             }
@@ -192,7 +192,7 @@ namespace scanner {
           buffer += currentChar;
 
           //std::cout << buffer << ' ' ;
-          tokenString.push_back (buffer);
+          tokenBuffer.push_back (buffer);
 
           return LParen;
 
@@ -204,7 +204,7 @@ namespace scanner {
           buffer += currentChar;
 
           //std::cout << buffer << ' ' ;
-          tokenString.push_back (buffer);
+          tokenBuffer.push_back (buffer);
 
           return RParen;
 
@@ -216,7 +216,7 @@ namespace scanner {
           buffer += currentChar;
 
           //std::cout << buffer << ' ' ;
-          tokenString.push_back (buffer);
+          tokenBuffer.push_back (buffer);
 
           return SemiColon;
 
@@ -229,7 +229,7 @@ namespace scanner {
           buffer += currentChar;
 
           //std::cout << buffer << ' ' ;
-          tokenString.push_back (buffer);
+          tokenBuffer.push_back (buffer);
 
           return Comma;
 
@@ -248,7 +248,7 @@ namespace scanner {
             advance ();
 
             //std::cout << buffer << ' ' ;
-            tokenString.push_back (buffer);
+            tokenBuffer.push_back (buffer);
 
             return AssignOp;
 
@@ -276,7 +276,7 @@ namespace scanner {
             advance ();
 
             //std::cout << buffer << ' ' ;
-            tokenString.push_back (buffer);
+            tokenBuffer.push_back (buffer);
 
             return ExpOp;
 
@@ -286,7 +286,7 @@ namespace scanner {
           else {
 
             //std::cout << buffer << ' ' ;
-            tokenString.push_back (buffer);
+            tokenBuffer.push_back (buffer);
 
             return MultOp;
 
@@ -300,7 +300,7 @@ namespace scanner {
           buffer += currentChar;
 
           //std::cout << buffer << ' ' ;
-          tokenString.push_back (buffer);
+          tokenBuffer.push_back (buffer);
 
           return PlusOp;
 
@@ -328,7 +328,7 @@ namespace scanner {
           else {
 
             //std::cout << buffer << ' ' ;
-            tokenString.push_back (buffer);
+            tokenBuffer.push_back (buffer);
 
             return MinusOp;
 
@@ -342,7 +342,7 @@ namespace scanner {
           buffer += currentChar;
 
           //std::cout << buffer << ' ' ;
-          tokenString.push_back (buffer);
+          tokenBuffer.push_back (buffer);
 
           return EqualOp;
 
@@ -352,7 +352,7 @@ namespace scanner {
         case EOF:
 
           buffer += currentChar;
-          tokenString.push_back (buffer);
+          tokenBuffer.push_back (buffer);
 
           return EofSym;
           break;
