@@ -9,8 +9,6 @@
 
 #include <string>
 #include <fstream>
-#include <vector>
-
 
 namespace scanner {
   // define type token which is returned by function scanner
@@ -39,10 +37,7 @@ namespace scanner {
   extern std::string token_type[]; 
 
   // holds the token strings built
-  extern std::vector<std::string> tokenBuffer;
-
-  // holds the token symbols
-  extern std::vector<token> tokenVector;
+  extern std::string tokenBuffer;
 
   // file stream buffer
   extern std::ifstream file;
@@ -67,7 +62,7 @@ namespace scanner {
      postcondition -
      returns either an Id token or a terminal symbol
    */
-  token checkReserved (const std::string checkString);
+  token checkReserved (const std::string& checkString);
 
   /*
      read
@@ -102,6 +97,28 @@ namespace scanner {
      the next input character is removed from the input stream, but not returned
    */
   void advance ();
+
+  /*
+     clearBuffer
+
+     precondition -
+     tokenBuffer exists
+
+     postcondition -
+     assigns the empty string to the tokenBuffer
+   */
+  void clearBuffer ();
+
+  /*
+     bufferChar
+
+     precondition -
+     tokenBuffer exists, and the character to append to the buffer
+
+     postcondition -
+     appends the provided character to the tokenBuffer
+   */
+  void bufferChar (const char& c);
 
 }
 

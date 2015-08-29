@@ -59,7 +59,7 @@ namespace scanner {
 
   }
 
-  token checkReserved (const std::string checkString) {
+  token checkReserved (const std::string& checkString) {
 
     if (checkString.compare ("BEGIN") == 0) {
 
@@ -93,7 +93,7 @@ namespace scanner {
 
   }
 
-  std::vector<std::string> tokenBuffer;
+  std::string tokenBuffer = ""; 
   token scan () {
 
     std::string buffer;
@@ -102,7 +102,7 @@ namespace scanner {
     bool done;
     do {
 
-      buffer = "";
+      clearBuffer();
 
       // read current character
       currentChar = read();
@@ -122,7 +122,7 @@ namespace scanner {
         case 'a' ... 'z':
         case 'A' ... 'Z':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           done = false; 
 
@@ -137,7 +137,7 @@ namespace scanner {
               case '_':
 
                 currentChar = inspect ();
-                buffer += currentChar;
+                bufferChar(currentChar) ;
                 advance ();
                 break;
 
@@ -145,7 +145,7 @@ namespace scanner {
 
                 done = true;
                 //std::cout << buffer << ' ' ;
-                tokenBuffer.push_back (buffer);
+                 
                 // check if an id or a reserved word
                 return checkReserved (buffer);
 
@@ -158,7 +158,7 @@ namespace scanner {
           // Integer string
         case '0' ... '9':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           done = false; 
 
@@ -169,7 +169,7 @@ namespace scanner {
               case '0' ... '9':
 
                 currentChar = inspect ();
-                buffer += currentChar;
+                bufferChar(currentChar) ;
                 advance ();
 
                 break;
@@ -178,7 +178,7 @@ namespace scanner {
 
                 done = true;
                 //std::cout << buffer << ' ';
-                tokenBuffer.push_back (buffer);
+                 
                 return IntLiteral;
 
             }
@@ -189,10 +189,10 @@ namespace scanner {
           // Left Paren
         case '(':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           //std::cout << buffer << ' ' ;
-          tokenBuffer.push_back (buffer);
+           
 
           return LParen;
 
@@ -201,10 +201,10 @@ namespace scanner {
           // Right Paren
         case ')':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           //std::cout << buffer << ' ' ;
-          tokenBuffer.push_back (buffer);
+           
 
           return RParen;
 
@@ -213,10 +213,10 @@ namespace scanner {
           // Semi Colon
         case ';':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           //std::cout << buffer << ' ' ;
-          tokenBuffer.push_back (buffer);
+           
 
           return SemiColon;
 
@@ -226,10 +226,10 @@ namespace scanner {
           // Comma
         case ',':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           //std::cout << buffer << ' ' ;
-          tokenBuffer.push_back (buffer);
+           
 
           return Comma;
 
@@ -241,14 +241,14 @@ namespace scanner {
           // Is AssignOp
           if (inspect () == '=') { 
 
-            buffer += currentChar;
+            bufferChar(currentChar) ;
 
             currentChar = inspect ();
-            buffer += currentChar;
+            bufferChar(currentChar) ;
             advance ();
 
             //std::cout << buffer << ' ' ;
-            tokenBuffer.push_back (buffer);
+             
 
             return AssignOp;
 
@@ -266,17 +266,17 @@ namespace scanner {
           // Check for muliplication or exponentiation operator 
         case '*':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           // Exponentiation operator
           if (inspect () == '*') { 
 
             currentChar = inspect ();
-            buffer += currentChar;
+            bufferChar(currentChar) ;
             advance ();
 
             //std::cout << buffer << ' ' ;
-            tokenBuffer.push_back (buffer);
+             
 
             return ExpOp;
 
@@ -294,10 +294,10 @@ namespace scanner {
           // Plus operator
         case '+':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           //std::cout << buffer << ' ' ;
-          tokenBuffer.push_back (buffer);
+           
 
           return PlusOp;
 
@@ -306,7 +306,7 @@ namespace scanner {
           // Minus operator or comment
         case '-':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
           // Is Comment ignore it
           if (inspect () == '-') {
 
@@ -314,7 +314,7 @@ namespace scanner {
 
               currentChar = read();
 
-              buffer += currentChar;
+              bufferChar(currentChar) ;
             }
 
             //std::cout << buffer << '\n';
@@ -325,7 +325,7 @@ namespace scanner {
           else {
 
             //std::cout << buffer << ' ' ;
-            tokenBuffer.push_back (buffer);
+             
 
             return MinusOp;
 
@@ -336,10 +336,10 @@ namespace scanner {
           // Equality Operator
         case '=':
 
-          buffer += currentChar;
+          bufferChar(currentChar) ;
 
           //std::cout << buffer << ' ' ;
-          tokenBuffer.push_back (buffer);
+           
 
           return EqualOp;
 
@@ -348,8 +348,8 @@ namespace scanner {
           // End of file encountered
         case EOF:
 
-          buffer += currentChar;
-          tokenBuffer.push_back (buffer);
+          bufferChar(currentChar) ;
+           
 
           return EofSym;
           break;
@@ -362,7 +362,17 @@ namespace scanner {
 
     }while (currentChar && file.good());
 
-//    return EofSym;
+  }
+
+  void clearBuffer () {
+
+    tokenBuffer = "";
+
+  }
+
+  void bufferChar(const char& c) {
+
+    tokenBuffer += c;
 
   }
 
