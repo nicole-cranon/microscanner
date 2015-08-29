@@ -102,6 +102,7 @@ namespace scanner {
      the next input character is removed from the input stream, but not returned
    */
   void advance ();
+
 }
 
 #endif

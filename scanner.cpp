@@ -360,9 +360,9 @@ namespace scanner {
 
       }
 
-    }while (currentChar != EOF && file.good());
+    }while (currentChar && file.good());
 
-    return EofSym;
+//    return EofSym;
 
   }
 

@@ -18,9 +18,6 @@ TokenBuffer: String
 		Advance - 
 			The next input character is removed, but not returned; no effect at end of file.
  
-	*Eof -
-		True at the end of file.
-
 	*BufferChar —  
 		Adds its argument to a character buffer called TokenBuffer. This buffer is visible to any part of the compiler, and always contains the text of the most recently scanned token. The content of TokenBuffer will be used particularly by semantic routines. Of course, the characters of this buffer also are used by CheckReserved to determine whether a token that looks like an identifier is actually a reserved word.
 
