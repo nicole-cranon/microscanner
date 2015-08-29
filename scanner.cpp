@@ -96,8 +96,6 @@ namespace scanner {
   std::string tokenBuffer = ""; 
   token scan () {
 
-    std::string buffer;
-
     char currentChar;
     bool done;
     do {
@@ -147,7 +145,7 @@ namespace scanner {
                 //std::cout << buffer << ' ' ;
                  
                 // check if an id or a reserved word
-                return checkReserved (buffer);
+                return checkReserved (tokenBuffer);
 
             }
 
