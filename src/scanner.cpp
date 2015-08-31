@@ -1,5 +1,5 @@
 /* 
-   nicole cranon <nicole.cranon@ucdenver.edu
+   nicole cranon <nicole.cranon@ucdenver.edu>
    csci 4640, fall 2015
    assignment 1 - micro scanner
  */
