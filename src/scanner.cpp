@@ -142,7 +142,7 @@ namespace scanner {
               default:
 
                 done = true;
-                //std::cout << buffer << ' ' ;
+                //std::cout << tokenBuffer << ' ' ;
                  
                 // check if an id or a reserved word
                 return checkReserved (tokenBuffer);
@@ -175,7 +175,7 @@ namespace scanner {
               default:
 
                 done = true;
-                //std::cout << buffer << ' ';
+                 //std::cout << tokenBuffer << ' ';
                  
                 return IntLiteral;
 
@@ -189,7 +189,7 @@ namespace scanner {
 
           bufferChar(currentChar) ;
 
-          //std::cout << buffer << ' ' ;
+           //std::cout << tokenBuffer << ' ' ;
            
 
           return LParen;
@@ -201,7 +201,7 @@ namespace scanner {
 
           bufferChar(currentChar) ;
 
-          //std::cout << buffer << ' ' ;
+           //std::cout << tokenBuffer << ' ' ;
            
 
           return RParen;
@@ -213,7 +213,7 @@ namespace scanner {
 
           bufferChar(currentChar) ;
 
-          //std::cout << buffer << ' ' ;
+           //std::cout << tokenBuffer << ' ' ;
            
 
           return SemiColon;
@@ -226,7 +226,7 @@ namespace scanner {
 
           bufferChar(currentChar) ;
 
-          //std::cout << buffer << ' ' ;
+           //std::cout << tokenBuffer << ' ' ;
            
 
           return Comma;
@@ -245,7 +245,7 @@ namespace scanner {
             bufferChar(currentChar) ;
             advance ();
 
-            //std::cout << buffer << ' ' ;
+             //std::cout << tokenBuffer << ' ' ;
              
 
             return AssignOp;
@@ -273,7 +273,7 @@ namespace scanner {
             bufferChar(currentChar) ;
             advance ();
 
-            //std::cout << buffer << ' ' ;
+             //std::cout << tokenBuffer << ' ' ;
              
 
             return ExpOp;
@@ -294,7 +294,7 @@ namespace scanner {
 
           bufferChar(currentChar) ;
 
-          //std::cout << buffer << ' ' ;
+           //std::cout << tokenBuffer << ' ' ;
            
 
           return PlusOp;
@@ -315,14 +315,14 @@ namespace scanner {
               bufferChar(currentChar) ;
             }
 
-            //std::cout << buffer << '\n';
+             //std::cout << tokenBuffer << '\n';
 
           }
 
           // Is minus operator
           else {
 
-            //std::cout << buffer << ' ' ;
+             //std::cout << tokenBuffer << ' ' ;
              
 
             return MinusOp;
@@ -336,7 +336,7 @@ namespace scanner {
 
           bufferChar(currentChar) ;
 
-          //std::cout << buffer << ' ' ;
+           //std::cout << tokenBuffer << ' ' ;
            
 
           return EqualOp;
